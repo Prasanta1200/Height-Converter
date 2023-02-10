@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Height Converter</title>
+    <style>
+      body{
+        background-color: black;
+        padding: 50px;
+      }
+      #container{
+        margin: auto;
+        padding: 20px;
+        margin-left: 600px;
+        margin-right: 400px;
+        border:2px solid orange;
+        background-color: #F2AA4CFF;   
+      }
+      button{
+        color: orange;
+        background-color: black;
+      }
+     
+      h1,p{
+        text-align: center;
+      }
+      #fet{
+        display: flex;
+        justify-content: center;
+      }
+      input{
+        margin-right: 10px;
+      }
+      #cm-inch{
+        background-color: black;
+      }
+     #c-i{
+        color: orange;
+     }
+     span{
+        color: green;
+     }
+    </style>
+</head>
+<body>
+  <div class="container1">
+    <div id="container">
+        <h1>HEIGHT CONVERTER</h1>
+        <label id="l"><p>Enter Your Hight in feet:</p></label>
+        <br>
+        <div id="fet">
+        <input type="number" id="feet" placeholder="Enter value in feet" oninput="checkValue()">
+        <button id="convert" onclick="convert()">Convert</button>
+        <p></p>
+    </div>
+    <p id="p"></p>
+        <br>
+        <div id="cm-inch">
+        <label id="c-i">Height in centimeters:</label>
+        <br>
+        <span id="cm"></span>
+        <br>
+        <label id="c-i">Height in inches:</label>
+        <br>
+        <span id="inch"></span>
+    </div>
+    </div>
+    </div>
+    <script>
+        function convert(){
+            let feet = document.getElementById("feet").value;
+            let cm = feet * 30.48;
+            let inch = feet * 12;
+            document.getElementById("cm").innerHTML = cm + " cm";
+            document.getElementById("inch").innerHTML = inch + " inch";
+        }
+        function checkValue(){
+            var feet = document.getElementById("feet").value;
+            if(feet > 9){
+                document.getElementById("p").innerHTML = "“No such person exists in recorded history”";
+                document.getElementById("p").style.color = "red"
+                
+            }else if(feet <0){
+                document.getElementById("p").innerHTML = "“ Please enter a valid value.“";
+                document.getElementById("p").style.color = "red"
+            }
+            else{
+                document.getElementById("p").innerHTML = ""
+            }
+        }
+    </script>
+</body>
+</html>
